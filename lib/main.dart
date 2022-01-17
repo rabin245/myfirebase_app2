@@ -1,8 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/rendering.dart';
-
 import 'homepage.dart';
 import 'login_widget.dart';
 
@@ -12,19 +10,27 @@ Future main() async {
   runApp(const MyApp());
 }
 
+final navigatorKey = GlobalKey<NavigatorState>();
+
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      navigatorKey: navigatorKey,
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        appBarTheme: AppBarTheme(backgroundColor: Colors.teal.shade400),
-        colorScheme: ColorScheme.dark(
-          primary: Colors.teal.shade400,
-          onPrimary: Colors.white,
-        ),
+      // theme: ThemeData(
+      //   appBarTheme: AppBarTheme(backgroundColor: Colors.teal.shade400),
+      //   colorScheme: ColorScheme.dark(
+      //     primary: Colors.teal.shade400,
+      //     onPrimary: Colors.white,
+      //   ),
+      // ),
+      theme: ThemeData.dark().copyWith(
+        colorScheme: ColorScheme.fromSwatch(
+          primarySwatch: Colors.teal,
+        ).copyWith(secondary: Colors.tealAccent),
       ),
       home: const MainPage(),
     );
