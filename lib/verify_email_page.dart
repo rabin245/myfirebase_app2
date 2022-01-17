@@ -15,6 +15,7 @@ class VerifyEmailPage extends StatefulWidget {
 
 class _VerifyEmailPageState extends State<VerifyEmailPage> {
   bool isEmailVerified = false;
+  bool canResendEmail = false;
   Timer? timer;
 
   @override
@@ -55,6 +56,10 @@ class _VerifyEmailPageState extends State<VerifyEmailPage> {
     try {
       final user = FirebaseAuth.instance.currentUser!;
       await user.sendEmailVerification();
+
+      setState(() => canResendEmail = false);
+      await Future.delayed(const Duration(seconds: 5));
+      setState(() => canResendEmail = true);
     } catch (e) {
       Utils.showSnackBar(e.toString());
     }
@@ -67,6 +72,37 @@ class _VerifyEmailPageState extends State<VerifyEmailPage> {
         : Scaffold(
             appBar: AppBar(
               title: const Text('Verify Email'),
+            ),
+            body: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text(
+                    'A verification email has been sent to your email.',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: 18),
+                  ),
+                  const SizedBox(height: 24),
+                  ElevatedButton.icon(
+                    style: ElevatedButton.styleFrom(
+                        minimumSize: const Size.fromHeight(50)),
+                    icon: const Icon(Icons.mail),
+                    label: const Text('Resend Email',
+                        style: TextStyle(fontSize: 21)),
+                    onPressed: canResendEmail ? sendVerificationEmail : () {},
+                  ),
+                  const SizedBox(height: 8),
+                  TextButton(
+                    child: const Text('Cancel', style: TextStyle(fontSize: 21)),
+                    style: TextButton.styleFrom(
+                        minimumSize: const Size.fromHeight(50)),
+                    onPressed: () {
+                      FirebaseAuth.instance.signOut();
+                    },
+                  ),
+                ],
+              ),
             ),
           );
   }
