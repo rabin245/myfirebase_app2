@@ -20,6 +20,8 @@ class SignUpWidget extends StatefulWidget {
 class _SignUpWidgetState extends State<SignUpWidget> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  final TextEditingController confirmPasswordController =
+      TextEditingController();
   final formKey = GlobalKey<FormState>();
 
   @override
@@ -70,6 +72,26 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                 validator: (value) => value != null && value.length < 6
                     ? 'Enter min. 6 characters'
                     : null,
+              ),
+              const SizedBox(height: 4),
+              TextFormField(
+                controller: confirmPasswordController,
+                cursorColor: Colors.white,
+                textInputAction: TextInputAction.done,
+                decoration:
+                    const InputDecoration(labelText: 'Confirm Password'),
+                obscureText: true,
+                autovalidateMode: AutovalidateMode.onUserInteraction,
+                validator: (value) {
+                  if (value != null) {
+                    if (confirmPasswordController.text !=
+                        passwordController.text) {
+                      return 'Passwords don\'t match!';
+                    }
+                  } else {
+                    return null;
+                  }
+                },
               ),
               const SizedBox(height: 18),
               ElevatedButton.icon(
