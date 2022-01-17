@@ -1,8 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:myfirebase_app2/verify_email_page.dart';
 import 'auth_page.dart';
-import 'homepage.dart';
 import 'utils.dart';
 
 Future main() async {
@@ -53,7 +53,7 @@ class MainPage extends StatelessWidget {
           } else if (snapshot.hasError) {
             return const Center(child: Text('Something went wrong!'));
           } else if (snapshot.hasData) {
-            return const HomePage();
+            return const VerifyEmailPage();
           } else {
             return const AuthPage();
           }
