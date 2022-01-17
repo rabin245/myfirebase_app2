@@ -36,6 +36,9 @@ dependencies:
   cupertino_icons: ^1.0.2
   firebase_auth: ^3.3.5
 
+  #  email validator
+  email_validator: ^2.0.1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

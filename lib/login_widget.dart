@@ -32,7 +32,6 @@ class _LoginWidgetState extends State<LoginWidget> {
       child: Padding(
         padding: const EdgeInsets.all(18.0),
         child: Column(
-          // mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const SizedBox(height: 40),
             const FlutterLogo(size: 90),
@@ -44,7 +43,6 @@ class _LoginWidgetState extends State<LoginWidget> {
             ),
             const SizedBox(height: 20),
             TextField(
-              // autofocus: true,
               controller: emailController,
               cursorColor: Colors.white,
               textInputAction: TextInputAction.next,
