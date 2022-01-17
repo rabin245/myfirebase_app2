@@ -3,19 +3,19 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:myfirebase_app2/main.dart';
 
-class LoginWidget extends StatefulWidget {
-  const LoginWidget({
-    required this.onClickedSignUp,
+class SignUpWidget extends StatefulWidget {
+  const SignUpWidget({
+    required this.onClickedSignIn,
     Key? key,
   }) : super(key: key);
 
-  final VoidCallback onClickedSignUp;
+  final Function() onClickedSignIn;
 
   @override
-  _LoginWidgetState createState() => _LoginWidgetState();
+  _SignUpWidgetState createState() => _SignUpWidgetState();
 }
 
-class _LoginWidgetState extends State<LoginWidget> {
+class _SignUpWidgetState extends State<SignUpWidget> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
@@ -64,19 +64,19 @@ class _LoginWidgetState extends State<LoginWidget> {
               style: ElevatedButton.styleFrom(
                 minimumSize: const Size.fromHeight(50),
               ),
-              icon: const Icon(Icons.lock_open, size: 32),
-              label: const Text('Sign In', style: TextStyle(fontSize: 24)),
+              icon: const Icon(Icons.arrow_forward_rounded, size: 32),
+              label: const Text('Sign Up', style: TextStyle(fontSize: 24)),
             ),
             const SizedBox(height: 24),
             RichText(
               text: TextSpan(
                 style: const TextStyle(color: Colors.white, fontSize: 20),
-                text: 'No account?  ',
+                text: 'Already have an account?  ',
                 children: [
                   TextSpan(
                     recognizer: TapGestureRecognizer()
-                      ..onTap = widget.onClickedSignUp,
-                    text: 'Sign Up',
+                      ..onTap = widget.onClickedSignIn,
+                    text: 'Log In',
                     style: TextStyle(
                       decoration: TextDecoration.underline,
                       color: Theme.of(context).colorScheme.secondary,
@@ -108,7 +108,7 @@ class _LoginWidgetState extends State<LoginWidget> {
     }
 
     navigatorKey.currentState!.popUntil((route) => route.isFirst);
-    // Navigator.of(context).pop();
+    // Navigator.of(context).pop();s
     // Navigator.of(context).popUntil((route) => route.isFirst);
   }
 }
