@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:myfirebase_app2/main.dart';
 import 'package:myfirebase_app2/utils.dart';
 
+import 'forgot_password_page.dart';
+
 class LoginWidget extends StatefulWidget {
   const LoginWidget({
     required this.onClickedSignUp,
@@ -67,6 +69,20 @@ class _LoginWidgetState extends State<LoginWidget> {
               label: const Text('Sign In', style: TextStyle(fontSize: 24)),
             ),
             const SizedBox(height: 24),
+            GestureDetector(
+              child: Text(
+                'Forgot Password?',
+                style: TextStyle(
+                  decoration: TextDecoration.underline,
+                  color: Theme.of(context).colorScheme.secondary,
+                  fontSize: 20,
+                ),
+              ),
+              onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => const ForgotPasswordPage(),
+              )),
+            ),
+            const SizedBox(height: 16),
             RichText(
               text: TextSpan(
                 style: const TextStyle(color: Colors.white, fontSize: 20),
