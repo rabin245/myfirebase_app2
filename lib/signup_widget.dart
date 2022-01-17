@@ -60,7 +60,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
             ),
             const SizedBox(height: 18),
             ElevatedButton.icon(
-              onPressed: signIn,
+              onPressed: signUp,
               style: ElevatedButton.styleFrom(
                 minimumSize: const Size.fromHeight(50),
               ),
@@ -91,7 +91,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
     );
   }
 
-  Future signIn() async {
+  Future signUp() async {
     showDialog(
       context: context,
       barrierDismissible: false,
@@ -99,7 +99,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
     );
 
     try {
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: emailController.text.trim(),
         password: passwordController.text.trim(),
       );
@@ -108,7 +108,5 @@ class _SignUpWidgetState extends State<SignUpWidget> {
     }
 
     navigatorKey.currentState!.popUntil((route) => route.isFirst);
-    // Navigator.of(context).pop();s
-    // Navigator.of(context).popUntil((route) => route.isFirst);
   }
 }
