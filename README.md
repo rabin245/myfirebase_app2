@@ -1,16 +1,19 @@
 # myfirebase_app2
 
-A new Flutter project.
+A flutter app to demonstrate usage of Firebase Aauthentication to Sign in user via email and password using firebase auth.
 
-## Getting Started
+# Screenshots
+### Sign In
 
-This project is a starting point for a Flutter application.
+<br><img src="screenshots/signin/si1.png" alt="screenshot" height="400"> <img src="screenshots/signin/si2.png" alt="screenshot" height="400"> <img src="screenshots/signin/si3.png" alt="screenshot" height="400"> <img src="screenshots/signin/si4.jpg" alt="screenshot" height="400">
 
-A few resources to get you started if this is your first Flutter project:
+### Sign Up
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+<br><img src="screenshots/signup/su2.png" alt="screenshot" height="400"> <img src="screenshots/signup/su3.png" alt="screenshot" height="400">
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Forgot Password
+
+<br><img src="screenshots/forgotpass/f1.png" alt="screenshot" height="400"> <img src="screenshots/forgotpass/f2.png" alt="screenshot" height="400"> <img src="screenshots/forgotpass/f3.png" alt="screenshot" height="400">
+
+
+
